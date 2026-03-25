@@ -46,25 +46,52 @@ export function EraBoard() {
     try {
       setIsDownloading(true);
       
-      // Wait a bit to ensure UI updates finish (like deselecting in Canvas, if any)
-      await new Promise(resolve => setTimeout(resolve, 100));
+      // Wait a bit to ensure UI updates finish
+      await new Promise(resolve => setTimeout(resolve, 200));
 
-      const dataUrl = await htmlToImage.toPng(canvasContainerRef.current, {
-        quality: 0.9,
-        backgroundColor: '#f4f0e4', // exact cream background
-        width: Math.min(window.innerWidth - 352, 1920), // Exclude sidebars
-        height: Math.min(window.innerHeight - 56, 1080), // Exclude top bar
+      const innerDiv = canvasContainerRef.current.querySelector('div') as HTMLElement;
+      if (!innerDiv) throw new Error("Canvas content missing");
+
+      // Calculate the actual bounding box of items so we don't crash rendering a blank 4000x4000 canvas
+      let minX = 4000, minY = 4000, maxX = 0, maxY = 0;
+      if (items.length > 0) {
+        items.forEach(item => {
+          if (item.x < minX) minX = item.x;
+          if (item.y < minY) minY = item.y;
+          if (item.x + item.width > maxX) maxX = item.x + item.width;
+          if (item.y + item.height > maxY) maxY = item.y + item.height;
+        });
+      } else {
+        minX = 0; minY = 0; maxX = 1200; maxY = 800; // default for empty board
+      }
+
+      // Add 100px padding
+      minX = Math.max(0, minX - 100);
+      minY = Math.max(0, minY - 100);
+      maxX = Math.min(4000, maxX + 100);
+      maxY = Math.min(4000, maxY + 100);
+
+      const exportWidth = maxX - minX;
+      const exportHeight = maxY - minY;
+
+      const dataUrl = await htmlToImage.toJpeg(innerDiv, {
+        quality: 0.95,
+        width: exportWidth,
+        height: exportHeight,
         style: {
-          transform: 'none',
+          transform: `translate(${-minX}px, ${-minY}px)`,
+          // Use CSS variable fallback
+          backgroundColor: typeof document !== 'undefined' && document.documentElement.classList.contains('dark') ? '#111a22' : '#f1f1f1'
         }
       });
 
       const link = document.createElement('a');
-      link.download = `${activeEra.name.replace(/\s+/g, '-').toLowerCase()}-board.png`;
+      link.download = `${activeEra.name} Era Board.jpg`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
       console.error('Failed to download image', err);
+      alert("Failed to export image! Please ensure all images are fully loaded.");
     } finally {
       setIsDownloading(false);
     }
