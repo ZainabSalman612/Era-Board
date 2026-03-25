@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  
+# 🎀✨ Era Board ✨🎀
+### *Your beautiful, aesthetic, and glassmorphic digital vision board.*
 
-## Getting Started
+<br>
 
-First, run the development server:
+<p align="center">
+  <b>Because every chapter of your life deserves its own gorgeous mood board.</b> 🌸  
+  Sort your vibes, manifest your dreams, and curate your aesthetic on an infinite canvas that looks just as good as your Pinterest grid.
+</p>
+
+</div>
+
+---
+
+## 🎨 Why Era Board?
+We got tired of clunky, boring canvas apps. **Era Board** is built differently. It's soft, responsive, and incredibly aesthetic. Designed with a custom ✨ **Navy, Muted Blue, Soft Pink, and Off-White** ✨ palette, it serves ultimate "clean girl" / professional mood-board energy. 
+
+## ☁️ The Features (A.K.A The Magic)
+
+- 🌸 **Define Your Eras:** Create separate boards (Eras) for different vibes—"Summer '24", "Career Goals", "Dream Apartment". Color code them and switch seamlessly!
+- 📌 **Aesthetic Sticky Notes:** Drag, drop, scale, and color your thoughts. Shadowed perfectly to look like they're floating on glass.
+- 🖼️ **Mood Pictures:** Drag & Drop up to 10 images per Era! Automatically compresses them for you so your browser stays lightning-fast. 
+- 🔤 **Floating Text Blocks:** Drop beautiful, borderless text anywhere on the canvas. 
+- 🌙 **Sleek Dark Mode:** A gorgeous horizontal pill-toggle instantly switches the bright Alabaster canvas into a stunning, deep-navy night mode.
+- 📸 **One-Click Export:** Love your board? Hit export to instantly download a high-res, watermarked PNG of your masterpiece.
+
+---
+
+## 💻 Tech Stack (Behind the Beauty)
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS v4 (Custom semantic variables for flawless light/dark mode)
+- **UI Architecture:** Built with native HTML5 Drag and Drop & absolute positioning logic. 
+- **Icons:** Lucide React
+- **Exporting:** `html-to-image` magic for pixel-perfect downloads.
+
+---
+
+## 🚀 Get Started Immediately!
+
+Ready to manifest? Running Era Board locally takes less than a minute!
 
 ```bash
+# 1. Clone this gorgeous repository
+git clone https://github.com/ZainabSalman612/Era-Board.git
+
+# 2. Go into the folder
+cd Era-Board
+
+# 3. Install the packages 
+npm install
+
+# 4. Spin up the local server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+👉 Open your browser to `http://localhost:3000` and start curating your life.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 💞 Built With Love
+*Made to make planning the best version of your life, well... beautiful.*
